@@ -1,8 +1,16 @@
 package com.studentdevelopers.tictactoe.model;
 
-/**
- * Created by Ronny on 27/04/2015.
- */
 public enum CellState {
-    CIRCLE, CROSS, EMPTY
+    CIRCLE("O"), CROSS("X"), EMPTY("-");
+
+    private final String representation;
+
+    CellState(String representation) {
+        this.representation = representation;
+    }
+
+    @Override
+    public String toString() {
+        return this.representation;
+    }
 }

@@ -1,11 +1,17 @@
 package com.studentdevelopers.tictactoe.model;
 
-/**
- * Created by Ronny on 27/04/2015.
- */
 public class Game {
-    public void markCell(int x, int y) {
 
+    private final PlayersPair playersPair;
+    private final Player currentPlayer;
+
+    public Game(PlayersPair playersPair) {
+        this.playersPair = playersPair;
+        this.currentPlayer = this.playersPair.playerA();
+    }
+
+    public void markCell(int cellID) {
+        this.currentPlayer.markCell(cellID);
     }
 
     public GameState gameState() {
@@ -13,10 +19,22 @@ public class Game {
     }
 
     public String boardToString() {
-        return null;
+        return board().toString();
+    }
+
+    private Board board() {
+        return playersPair.board();
     }
 
     public CellState cellStateForPosition(int x, int y) {
         return null;
+    }
+
+    public Player playerA() {
+        return playersPair.playerA();
+    }
+
+    public Player playerB() {
+        return playersPair.playerB();
     }
 }

@@ -1,10 +1,12 @@
 package com.studentdevelopers.tictactoe.model;
 
-/**
- * Created by Ronny on 27/04/2015.
- */
+import static com.studentdevelopers.tictactoe.model.Figure.*;
+
 public class GameBuilder {
-    public Game buildAPersonVSPersonGame() {
-        return null;
+
+    public static Game buildAPersonVSPersonGame() {
+        Board board = new Board();
+        return new Game(new PlayersPair(new HumanPlayer(board, CIRCLE), new HumanPlayer(board, CROSS)));
     }
+
 }

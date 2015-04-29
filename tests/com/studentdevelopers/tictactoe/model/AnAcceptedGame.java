@@ -11,17 +11,16 @@ public class AnAcceptedGame {
 
     @Test
     public void should_finish_when_a_player_wins() {
-        GameBuilder builder = new GameBuilder();
-        Game game = builder.buildAPersonVSPersonGame();
-        game.markCell(0, 0);
-        game.markCell(1, 1);
-        game.markCell(0, 1);
-        game.markCell(1, 2);
-        game.markCell(0, 2);
-        assertThat(game.gameState(), is(GameState.FINISHED));
-        assertThat(game.boardToString(), is(firstTestBoard));
+        Game game = GameBuilder.buildAPersonVSPersonGame();
+        game.markCell(1);
+        game.markCell(5);
+        game.markCell(2);
+        game.markCell(6);
+        game.markCell(3);
         assertThat(game.cellStateForPosition(2, 2), is(CellState.EMPTY));
         assertThat(game.cellStateForPosition(0, 0), is(CellState.CIRCLE));
         assertThat(game.cellStateForPosition(1, 1), is(CellState.CROSS));
+        assertThat(game.boardToString(), is(firstTestBoard));
+        assertThat(game.gameState(), is(GameState.FINISHED));
     }
 }
