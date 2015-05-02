@@ -41,4 +41,15 @@ public class GameBehaviour {
         game.markCell(1);
         assertThat(game.boardToString(), is("X - -\n- O -\n- - -\n"));
     }
+
+    @Test
+    public void should_alternate_current_player_each_time_a_cell_is_marked() throws Exception {
+        game.markCell(1);
+        game.markCell(2);
+        game.markCell(5);
+        game.markCell(3);
+        game.markCell(4);
+        game.markCell(9);
+        assertThat(game.boardToString(), is("O X X\nO O -\n- - X\n"));
+    }
 }

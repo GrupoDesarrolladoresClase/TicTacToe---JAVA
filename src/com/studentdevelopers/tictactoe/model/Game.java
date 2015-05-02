@@ -45,6 +45,6 @@ public class Game implements Observer {
 
     @Override
     public void update() {
-        currentPlayer = (currentPlayer == playerA()) ? playerB() : playerB();
+        currentPlayer = (currentPlayer == playerA()) ? playerB() : playerA();
     }
 }
