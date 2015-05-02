@@ -1,11 +1,11 @@
 package com.studentdevelopers.tictactoe.model;
 
+import com.studentdevelopers.tictactoe.model.board.Board;
+import com.studentdevelopers.tictactoe.model.player.HumanPlayer;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.function.Supplier;
-
-import static com.studentdevelopers.tictactoe.model.Figure.*;
+import static com.studentdevelopers.tictactoe.model.player.Figure.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
@@ -33,5 +33,12 @@ public class GameBehaviour {
     public void should_mark_with_a_circle_center_Position_when_first_player_moves_there() throws Exception {
         game.markCell(5);
         assertThat(game.boardToString(), is("- - -\n- O -\n- - -\n"));
+    }
+
+    @Test
+    public void should_mark_the_board_with_two_different_figures_when_mark_cell_twice() throws Exception {
+        game.markCell(5);
+        game.markCell(1);
+        assertThat(game.boardToString(), is("X - -\n- O -\n- - -\n"));
     }
 }

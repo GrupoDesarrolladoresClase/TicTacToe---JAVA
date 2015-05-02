@@ -1,4 +1,4 @@
-package com.studentdevelopers.tictactoe.model;
+package com.studentdevelopers.tictactoe.model.board;
 
 public enum CellState {
     CIRCLE("O"), CROSS("X"), EMPTY("-");

@@ -1,5 +1,6 @@
 package com.studentdevelopers.tictactoe.model;
 
+import com.studentdevelopers.tictactoe.model.player.HumanPlayer;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertTrue;

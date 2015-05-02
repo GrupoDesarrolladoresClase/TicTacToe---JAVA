@@ -1,13 +1,18 @@
 package com.studentdevelopers.tictactoe.model;
 
-public class Game {
+import com.studentdevelopers.tictactoe.model.board.Board;
+import com.studentdevelopers.tictactoe.model.board.CellState;
+import com.studentdevelopers.tictactoe.model.player.Player;
+
+public class Game implements Observer {
 
     private final PlayersPair playersPair;
-    private final Player currentPlayer;
+    private Player currentPlayer;
 
     public Game(PlayersPair playersPair) {
         this.playersPair = playersPair;
         this.currentPlayer = this.playersPair.playerA();
+        this.board().addObserver(this);
     }
 
     public void markCell(int cellID) {
@@ -36,5 +41,10 @@ public class Game {
 
     public Player playerB() {
         return playersPair.playerB();
+    }
+
+    @Override
+    public void update() {
+        currentPlayer = (currentPlayer == playerA()) ? playerB() : playerB();
     }
 }

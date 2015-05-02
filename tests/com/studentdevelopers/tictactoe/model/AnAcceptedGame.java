@@ -1,5 +1,6 @@
 package com.studentdevelopers.tictactoe.model;
 
+import com.studentdevelopers.tictactoe.model.board.CellState;
 import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
