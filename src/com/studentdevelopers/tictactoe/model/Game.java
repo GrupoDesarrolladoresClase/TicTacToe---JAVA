@@ -8,10 +8,12 @@ public class Game implements Observer {
 
     private final PlayersPair playersPair;
     private Player currentPlayer;
+    private GameState state;
 
     public Game(PlayersPair playersPair) {
         this.playersPair = playersPair;
         this.currentPlayer = this.playersPair.playerA();
+        this.state = GameState.RUNNING;
         this.board().addObserver(this);
     }
 
@@ -43,8 +45,20 @@ public class Game implements Observer {
         return playersPair.playerB();
     }
 
+    public GameState state() {
+        return state;
+    }
+
+    public String winner() {
+        return "PlayerA";
+    }
+
     @Override
     public void update() {
+        if (WinChecker.isThereWinnerInBoard(board())) {
+            state = GameState.RUNNING;
+            return;
+        }
         currentPlayer = (currentPlayer == playerA()) ? playerB() : playerA();
     }
 }

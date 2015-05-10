@@ -52,4 +52,15 @@ public class GameBehaviour {
         game.markCell(9);
         assertThat(game.boardToString(), is("O X X\nO O -\n- - X\n"));
     }
+
+    @Test
+    public void should_have_finished_state_when_there_is_a_winner() throws Exception {
+        game.markCell(1);
+        game.markCell(2);
+        game.markCell(4);
+        game.markCell(3);
+        game.markCell(7);
+        assertThat(game.boardToString(), is("O X X\nO - -\nO - -\n"));
+        assertThat(game.gameState(), is(GameState.FINISHED));
+    }
 }
