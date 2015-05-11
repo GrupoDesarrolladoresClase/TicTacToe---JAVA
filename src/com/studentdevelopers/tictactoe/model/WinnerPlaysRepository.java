@@ -12,8 +12,9 @@ import java.util.function.Function;
 
 public class WinnerPlaysRepository {
 
-    private static final int FIRST_ROW = 0;
-    private static final int SECOND_ROW = 1;
+    private static final int FIRST = 0;
+    private static final int SECOND = 1;
+    private static final int THIRD = 2;
     private static final int COLUMNS = 3;
 
     private final ArrayList<Function<Board, Boolean>> plays;
@@ -24,26 +25,55 @@ public class WinnerPlaysRepository {
 
     public WinnerPlaysRepository() {
         plays = new ArrayList<>();
-        plays.add(board -> isAWonRow(FIRST_ROW, board));
-        plays.add(board -> isAWonRow(SECOND_ROW, board));
+        plays.add(board -> isAWonRow(FIRST, board));
+        plays.add(board -> isAWonRow(SECOND, board));
+        plays.add(board -> isAWonRow(THIRD, board));
+        plays.add(board -> isAWonColumn(FIRST, board));
+        plays.add(board -> isAWonColumn(SECOND, board));
+        plays.add(board -> isAWonColumn(THIRD, board));
+        plays.add(this::isAWonTopBottomDiagonal);
+        plays.add(this::isAWonBottomTopDiagonal);
+    }
+
+    private boolean isAWonBottomTopDiagonal(Board board) {
+        return isNotEmpty(board.cell(5)) && stateFor(board.cell(3)) == stateFor(board.cell(5))
+                && stateFor(board.cell(5)) == stateFor(board.cell(7));
+    }
+
+    private boolean isAWonTopBottomDiagonal(Board board) {
+        return isNotEmpty(board.cell(5)) && stateFor(board.cell(1)) == stateFor(board.cell(5))
+                && stateFor(board.cell(5)) == stateFor(board.cell(9));
+    }
+
+    private boolean isAWonColumn(int column, Board board) {
+        Map<String, Markable> cells = cellsMapForColumn(column, board);
+        return isNotEmpty(cells.get("second")) && haveAllCellsSameState(cells);
+    }
+
+    private Map<String, Markable> cellsMapForColumn(int column, Board board) {
+        Map<String, Markable> cells = new HashMap<>();
+        cells.put("first", board.cell(1 + column));
+        cells.put("second", board.cell(4 + column));
+        cells.put("third", board.cell(7 + column));
+        return cells;
     }
 
     private boolean isAWonRow(int row, Board board) {
         Map<String, Markable> cells = cellsMapForRow(row, board);
-        return isNotEmpty(cells.get("mid")) && haveAllCellsSameState(cells);
+        return isNotEmpty(cells.get("second")) && haveAllCellsSameState(cells);
     }
 
     private Map<String, Markable> cellsMapForRow(int row, Board board) {
         Map<String, Markable> cells = new HashMap<>();
-        cells.put("left", board.cell(1 + row * COLUMNS));
-        cells.put("mid", board.cell(2 + row * COLUMNS));
-        cells.put("right", board.cell(3 + row * COLUMNS));
+        cells.put("first", board.cell(1 + row * COLUMNS));
+        cells.put("second", board.cell(2 + row * COLUMNS));
+        cells.put("third", board.cell(3 + row * COLUMNS));
         return cells;
     }
 
     private boolean haveAllCellsSameState(Map<String, Markable> cells) {
-        return stateFor(cells.get("left")) == stateFor(cells.get("mid")) &&
-                stateFor(cells.get("mid")) == stateFor(cells.get("right"));
+        return stateFor(cells.get("first")) == stateFor(cells.get("second")) &&
+                stateFor(cells.get("second")) == stateFor(cells.get("third"));
     }
 
     private boolean isNotEmpty(Markable cell) {
