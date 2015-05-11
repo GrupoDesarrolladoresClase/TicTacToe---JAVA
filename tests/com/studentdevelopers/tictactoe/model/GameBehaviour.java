@@ -61,6 +61,6 @@ public class GameBehaviour {
         game.markCell(3);
         game.markCell(7);
         assertThat(game.boardToString(), is("O X X\nO - -\nO - -\n"));
-        assertThat(game.gameState(), is(GameState.FINISHED));
+        assertThat(game.gameState(), is(GameState.WON));
     }
 }

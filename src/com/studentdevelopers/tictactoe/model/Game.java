@@ -18,11 +18,11 @@ public class Game implements Observer {
     }
 
     public void markCell(int cellID) {
-        this.currentPlayer.markCell(cellID);
+        currentPlayer.markCell(cellID);
     }
 
     public GameState gameState() {
-        return null;
+        return this.state;
     }
 
     public String boardToString() {
@@ -33,10 +33,6 @@ public class Game implements Observer {
         return playersPair.board();
     }
 
-    public CellState cellStateForPosition(int x, int y) {
-        return null;
-    }
-
     public Player playerA() {
         return playersPair.playerA();
     }
@@ -45,20 +41,14 @@ public class Game implements Observer {
         return playersPair.playerB();
     }
 
-    public GameState state() {
-        return state;
-    }
-
     public String winner() {
         return "PlayerA";
     }
 
     @Override
     public void update() {
-        if (WinChecker.isThereWinnerInBoard(board())) {
-            state = GameState.RUNNING;
-            return;
-        }
+        if (WinChecker.isThereWinnerInBoard(board())) state = GameState.WON;
+
         currentPlayer = (currentPlayer == playerA()) ? playerB() : playerA();
     }
 }

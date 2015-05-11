@@ -14,10 +14,10 @@ public class Player {
     }
 
     public void markCell(int cellID) {
-        cellFromBoard(cellID).markWith(figure);
+        cell(cellID).markWith(figure);
     }
 
-    private Markable cellFromBoard(int cellID) {
+    private Markable cell(int cellID) {
         return board.cell(cellID);
     }
 
