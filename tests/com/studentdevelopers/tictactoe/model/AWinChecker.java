@@ -1,7 +1,6 @@
 package com.studentdevelopers.tictactoe.model;
 
 import com.studentdevelopers.tictactoe.model.board.Board;
-import com.studentdevelopers.tictactoe.model.board.Markable;
 import com.studentdevelopers.tictactoe.model.helpers.LineMarker;
 import com.studentdevelopers.tictactoe.model.player.Figure;
 import org.junit.Before;
@@ -25,7 +24,7 @@ public class AWinChecker {
 
     @Test
     public void should_return_false_when_board_is_empty() throws Exception {
-        assertThat(WinChecker.isThereWinnerInBoard(new Board()), is(false));
+        assertThat(StateChecker.isThereWinnerInBoard(new Board()), is(false));
     }
 
     @Test
@@ -34,8 +33,8 @@ public class AWinChecker {
         Board boardWithX = new Board();
         marker.markRowWithCircle(FIRST, boardWithO);
         marker.markRowWithCross(FIRST, boardWithX);
-        assertThat(WinChecker.isThereWinnerInBoard(boardWithO), is(true));
-        assertThat(WinChecker.isThereWinnerInBoard(boardWithX), is(true));
+        assertThat(StateChecker.isThereWinnerInBoard(boardWithO), is(true));
+        assertThat(StateChecker.isThereWinnerInBoard(boardWithX), is(true));
     }
 
     @Test
@@ -44,8 +43,8 @@ public class AWinChecker {
         Board boardWithX = new Board();
         marker.markRowWithCircle(SECOND, boardWithO);
         marker.markRowWithCross(SECOND, boardWithX);
-        assertThat(WinChecker.isThereWinnerInBoard(boardWithO), is(true));
-        assertThat(WinChecker.isThereWinnerInBoard(boardWithX), is(true));
+        assertThat(StateChecker.isThereWinnerInBoard(boardWithO), is(true));
+        assertThat(StateChecker.isThereWinnerInBoard(boardWithX), is(true));
     }
 
     @Test
@@ -54,8 +53,8 @@ public class AWinChecker {
         Board boardWithX = new Board();
         marker.markRowWithCircle(THIRD, boardWithO);
         marker.markRowWithCross(THIRD, boardWithX);
-        assertThat(WinChecker.isThereWinnerInBoard(boardWithO), is(true));
-        assertThat(WinChecker.isThereWinnerInBoard(boardWithX), is(true));
+        assertThat(StateChecker.isThereWinnerInBoard(boardWithO), is(true));
+        assertThat(StateChecker.isThereWinnerInBoard(boardWithX), is(true));
     }
 
     @Test
@@ -64,8 +63,8 @@ public class AWinChecker {
         Board boardWithX = new Board();
         marker.markColumnWithCircle(FIRST, boardWithO);
         marker.markColumnWithCross(FIRST, boardWithX);
-        assertThat(WinChecker.isThereWinnerInBoard(boardWithO), is(true));
-        assertThat(WinChecker.isThereWinnerInBoard(boardWithX), is(true));
+        assertThat(StateChecker.isThereWinnerInBoard(boardWithO), is(true));
+        assertThat(StateChecker.isThereWinnerInBoard(boardWithX), is(true));
     }
 
     @Test
@@ -74,8 +73,8 @@ public class AWinChecker {
         Board boardWithX = new Board();
         marker.markColumnWithCircle(SECOND, boardWithO);
         marker.markColumnWithCross(SECOND, boardWithX);
-        assertThat(WinChecker.isThereWinnerInBoard(boardWithO), is(true));
-        assertThat(WinChecker.isThereWinnerInBoard(boardWithX), is(true));
+        assertThat(StateChecker.isThereWinnerInBoard(boardWithO), is(true));
+        assertThat(StateChecker.isThereWinnerInBoard(boardWithX), is(true));
     }
 
     @Test
@@ -84,8 +83,8 @@ public class AWinChecker {
         Board boardWithX = new Board();
         marker.markColumnWithCircle(THIRD, boardWithO);
         marker.markColumnWithCross(THIRD, boardWithX);
-        assertThat(WinChecker.isThereWinnerInBoard(boardWithO), is(true));
-        assertThat(WinChecker.isThereWinnerInBoard(boardWithX), is(true));
+        assertThat(StateChecker.isThereWinnerInBoard(boardWithO), is(true));
+        assertThat(StateChecker.isThereWinnerInBoard(boardWithX), is(true));
     }
 
     @Test
@@ -94,8 +93,8 @@ public class AWinChecker {
         Board boardWithX = new Board();
         marker.markTopBottomDiagonalInBoardWith(boardWithO, Figure.CIRCLE);
         marker.markTopBottomDiagonalInBoardWith(boardWithX, Figure.CROSS);
-        assertThat(WinChecker.isThereWinnerInBoard(boardWithO), is(true));
-        assertThat(WinChecker.isThereWinnerInBoard(boardWithX), is(true));
+        assertThat(StateChecker.isThereWinnerInBoard(boardWithO), is(true));
+        assertThat(StateChecker.isThereWinnerInBoard(boardWithX), is(true));
     }
 
     @Test
@@ -104,7 +103,7 @@ public class AWinChecker {
         Board boardWithX = new Board();
         marker.markBottomTopDiagonalInBoardWith(boardWithO, Figure.CIRCLE);
         marker.markBottomTopDiagonalInBoardWith(boardWithX, Figure.CROSS);
-        assertThat(WinChecker.isThereWinnerInBoard(boardWithO), is(true));
-        assertThat(WinChecker.isThereWinnerInBoard(boardWithX), is(true));
+        assertThat(StateChecker.isThereWinnerInBoard(boardWithO), is(true));
+        assertThat(StateChecker.isThereWinnerInBoard(boardWithX), is(true));
     }
 }

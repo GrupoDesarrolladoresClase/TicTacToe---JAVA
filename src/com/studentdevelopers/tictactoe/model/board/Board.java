@@ -59,4 +59,8 @@ public class Board extends Observable implements Observer{
     public void update() {
         notifyObservers();
     }
+
+    public Cell[] cells() {
+        return cells;
+    }
 }

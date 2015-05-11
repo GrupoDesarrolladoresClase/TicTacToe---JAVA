@@ -1,7 +1,6 @@
 package com.studentdevelopers.tictactoe.model;
 
 import com.studentdevelopers.tictactoe.model.board.Board;
-import com.studentdevelopers.tictactoe.model.board.CellState;
 import com.studentdevelopers.tictactoe.model.player.Player;
 
 public class Game implements Observer {
@@ -47,8 +46,7 @@ public class Game implements Observer {
 
     @Override
     public void update() {
-        if (WinChecker.isThereWinnerInBoard(board())) state = GameState.WON;
-
+        state = StateChecker.getUpdatedGameStateFor(board());
         currentPlayer = (currentPlayer == playerA()) ? playerB() : playerA();
     }
 }
