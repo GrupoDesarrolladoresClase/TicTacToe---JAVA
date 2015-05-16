@@ -10,6 +10,7 @@ public class AnAcceptedGame {
 
     private final String firstTestBoard = "O O O\n- X X\n- - -\n";
     private final String secondTestBoard = "O X O\nX X O\nO O X\n";
+    private final String thirdTestBoard = "O X -\nO X -\nO - -\n";
 
     @Test
     public void should_have_a_won_state_when_circles_wins() {
@@ -53,5 +54,19 @@ public class AnAcceptedGame {
         game.markCell(6);
         assertThat(game.gameState(), is(GameState.WON));
         assertThat(game.winner(), is(Figure.CROSS));
+    }
+
+    @Test
+    public void should_not_allow_player_mark_a_cell_when_this_cell_is_already_marked() {
+        Game game = GameBuilder.buildAPersonVSPersonGame();
+        game.markCell(1);
+        game.markCell(1);
+        game.markCell(2);
+        game.markCell(4);
+        game.markCell(5);
+        game.markCell(7);
+        assertThat(game.boardToString(), is(thirdTestBoard));
+        assertThat(game.gameState(), is(GameState.WON));
+        assertThat(game.winner(), is(Figure.CIRCLE));
     }
 }

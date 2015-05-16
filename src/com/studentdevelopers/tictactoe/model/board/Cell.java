@@ -14,6 +14,7 @@ public class Cell extends Observable implements Markable {
 
     @Override
     public void markWith(Figure figure) {
+        if (this.state() != CellState.EMPTY) return;
         this.state = figure.equals(Figure.CIRCLE) ? CellState.CIRCLE : CellState.CROSS;
         notifyObservers();
     }
