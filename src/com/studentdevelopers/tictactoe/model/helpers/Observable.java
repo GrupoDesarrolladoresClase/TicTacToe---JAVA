@@ -1,4 +1,4 @@
-package com.studentdevelopers.tictactoe.model;
+package com.studentdevelopers.tictactoe.model.helpers;
 
 import java.util.ArrayList;
 

@@ -1,7 +1,7 @@
 package com.studentdevelopers.tictactoe.model.board;
 
-import com.studentdevelopers.tictactoe.model.Observable;
-import com.studentdevelopers.tictactoe.model.Observer;
+import com.studentdevelopers.tictactoe.model.helpers.Observable;
+import com.studentdevelopers.tictactoe.model.helpers.Observer;
 import com.studentdevelopers.tictactoe.model.player.Figure;
 
 public class Cell extends Observable implements Markable {

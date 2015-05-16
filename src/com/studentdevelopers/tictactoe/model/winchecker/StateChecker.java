@@ -1,8 +1,8 @@
-package com.studentdevelopers.tictactoe.model;
+package com.studentdevelopers.tictactoe.model.winchecker;
 
 import com.studentdevelopers.tictactoe.model.board.Board;
 import com.studentdevelopers.tictactoe.model.board.Cell;
-import com.studentdevelopers.tictactoe.model.board.CellState;
+import com.studentdevelopers.tictactoe.model.GameState;
 
 import java.util.function.Function;
 

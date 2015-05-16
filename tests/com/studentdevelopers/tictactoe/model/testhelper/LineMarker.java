@@ -1,4 +1,4 @@
-package com.studentdevelopers.tictactoe.model.helpers;
+package com.studentdevelopers.tictactoe.model.testhelper;
 
 import com.studentdevelopers.tictactoe.model.board.Board;
 import com.studentdevelopers.tictactoe.model.board.Markable;

@@ -1,6 +1,8 @@
 package com.studentdevelopers.tictactoe.model;
 
 import com.studentdevelopers.tictactoe.model.board.Board;
+import com.studentdevelopers.tictactoe.model.winchecker.StateChecker;
+import com.studentdevelopers.tictactoe.model.helpers.Observer;
 import com.studentdevelopers.tictactoe.model.player.Player;
 
 public class Game implements Observer {
