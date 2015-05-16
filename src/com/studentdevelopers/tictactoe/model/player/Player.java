@@ -1,4 +1,7 @@
-package com.studentdevelopers.tictactoe.model;
+package com.studentdevelopers.tictactoe.model.player;
+
+import com.studentdevelopers.tictactoe.model.board.Markable;
+import com.studentdevelopers.tictactoe.model.board.Board;
 
 public class Player {
 
@@ -11,14 +14,18 @@ public class Player {
     }
 
     public void markCell(int cellID) {
-        cellFromBoard(cellID).markWith(figure);
+        cell(cellID).markWith(figure);
     }
 
-    private Markable cellFromBoard(int cellID) {
+    private Markable cell(int cellID) {
         return board.cell(cellID);
     }
 
     public Board board() {
         return this.board;
+    }
+
+    public Figure figure() {
+        return this.figure;
     }
 }

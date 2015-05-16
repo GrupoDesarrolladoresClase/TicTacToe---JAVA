@@ -1,6 +1,9 @@
 package com.studentdevelopers.tictactoe.model;
 
-import static com.studentdevelopers.tictactoe.model.Figure.*;
+import com.studentdevelopers.tictactoe.model.board.Board;
+import com.studentdevelopers.tictactoe.model.player.HumanPlayer;
+
+import static com.studentdevelopers.tictactoe.model.player.Figure.*;
 
 public class GameBuilder {
 

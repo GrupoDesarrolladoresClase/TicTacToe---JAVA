@@ -1,21 +1,30 @@
 package com.studentdevelopers.tictactoe.model;
 
-public class Game {
+import com.studentdevelopers.tictactoe.model.board.Board;
+import com.studentdevelopers.tictactoe.model.player.Figure;
+import com.studentdevelopers.tictactoe.model.winchecker.StateChecker;
+import com.studentdevelopers.tictactoe.model.helpers.Observer;
+import com.studentdevelopers.tictactoe.model.player.Player;
+
+public class Game implements Observer {
 
     private final PlayersPair playersPair;
-    private final Player currentPlayer;
+    private Player currentPlayer;
+    private GameState state;
 
     public Game(PlayersPair playersPair) {
         this.playersPair = playersPair;
         this.currentPlayer = this.playersPair.playerA();
+        this.state = GameState.RUNNING;
+        this.board().addObserver(this);
     }
 
     public void markCell(int cellID) {
-        this.currentPlayer.markCell(cellID);
+        currentPlayer.markCell(cellID);
     }
 
     public GameState gameState() {
-        return null;
+        return this.state;
     }
 
     public String boardToString() {
@@ -26,15 +35,22 @@ public class Game {
         return playersPair.board();
     }
 
-    public CellState cellStateForPosition(int x, int y) {
-        return null;
-    }
-
     public Player playerA() {
         return playersPair.playerA();
     }
 
     public Player playerB() {
         return playersPair.playerB();
+    }
+
+    public Figure winner() {
+        return currentPlayer.figure();
+    }
+
+    @Override
+    public void update() {
+        state = StateChecker.getUpdatedGameStateFor(board());
+        if (state != GameState.RUNNING) return;
+        currentPlayer = (currentPlayer == playerA()) ? playerB() : playerA();
     }
 }

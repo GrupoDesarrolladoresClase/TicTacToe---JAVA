@@ -1,5 +1,8 @@
 package com.studentdevelopers.tictactoe.model;
 
+import com.studentdevelopers.tictactoe.model.board.Board;
+import com.studentdevelopers.tictactoe.model.player.HumanPlayer;
+
 public class PlayersPair {
     private final HumanPlayer playerA;
     private final HumanPlayer playerB;

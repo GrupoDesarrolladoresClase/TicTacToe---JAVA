@@ -1,4 +1,6 @@
-package com.studentdevelopers.tictactoe.model;
+package com.studentdevelopers.tictactoe.model.player;
+
+import com.studentdevelopers.tictactoe.model.board.Board;
 
 public class HumanPlayer extends Player{
 
