@@ -24,4 +24,8 @@ public class Player {
     public Board board() {
         return this.board;
     }
+
+    public Figure figure() {
+        return this.figure;
+    }
 }

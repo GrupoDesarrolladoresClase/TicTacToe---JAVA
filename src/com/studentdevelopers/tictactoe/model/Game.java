@@ -1,6 +1,7 @@
 package com.studentdevelopers.tictactoe.model;
 
 import com.studentdevelopers.tictactoe.model.board.Board;
+import com.studentdevelopers.tictactoe.model.player.Figure;
 import com.studentdevelopers.tictactoe.model.winchecker.StateChecker;
 import com.studentdevelopers.tictactoe.model.helpers.Observer;
 import com.studentdevelopers.tictactoe.model.player.Player;
@@ -42,13 +43,14 @@ public class Game implements Observer {
         return playersPair.playerB();
     }
 
-    public String winner() {
-        return "PlayerA";
+    public Figure winner() {
+        return currentPlayer.figure();
     }
 
     @Override
     public void update() {
         state = StateChecker.getUpdatedGameStateFor(board());
+        if (state != GameState.RUNNING) return;
         currentPlayer = (currentPlayer == playerA()) ? playerB() : playerA();
     }
 }

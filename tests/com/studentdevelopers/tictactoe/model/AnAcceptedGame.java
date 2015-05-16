@@ -1,5 +1,6 @@
 package com.studentdevelopers.tictactoe.model;
 
+import com.studentdevelopers.tictactoe.model.player.Figure;
 import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -11,7 +12,7 @@ public class AnAcceptedGame {
     private final String secondTestBoard = "O X O\nX X O\nO O X\n";
 
     @Test
-    public void should_finish_when_a_player_wins() {
+    public void should_have_a_won_state_when_circles_wins() {
         Game game = GameBuilder.buildAPersonVSPersonGame();
         game.markCell(1);
         game.markCell(5);
@@ -20,11 +21,11 @@ public class AnAcceptedGame {
         game.markCell(3);
         assertThat(game.boardToString(), is(firstTestBoard));
         assertThat(game.gameState(), is(GameState.WON));
-        assertThat(game.winner(), is("PlayerA"));
+        assertThat(game.winner(), is(Figure.CIRCLE));
     }
 
     @Test
-    public void should_finish_when_all_cells_are_marked_without_a_winner() {
+    public void should_have_a_tie_state_when_all_cells_are_marked_without_a_winner() {
         Game game = GameBuilder.buildAPersonVSPersonGame();
         game.markCell(1);
         game.markCell(2);
@@ -38,5 +39,19 @@ public class AnAcceptedGame {
         game.markCell(7);
         assertThat(game.gameState(), is(GameState.TIE));
         assertThat(game.boardToString(), is(secondTestBoard));
+    }
+
+    @Test
+    public void should_return_crosses_like_winner_when_crosses_wins() {
+        Game game = GameBuilder.buildAPersonVSPersonGame();
+        game.markCell(1);
+        game.markCell(4);
+        game.markCell(8);
+        game.markCell(5);
+        game.markCell(9);
+        assertThat(game.gameState(), is(GameState.RUNNING));
+        game.markCell(6);
+        assertThat(game.gameState(), is(GameState.WON));
+        assertThat(game.winner(), is(Figure.CROSS));
     }
 }
