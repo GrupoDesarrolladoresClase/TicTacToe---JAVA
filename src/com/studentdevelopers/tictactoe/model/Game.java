@@ -31,7 +31,7 @@ public class Game implements Observer {
         return board().toString();
     }
 
-    private Board board() {
+    public Board board() {
         return playersPair.board();
     }
 

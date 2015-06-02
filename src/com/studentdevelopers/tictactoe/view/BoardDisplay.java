@@ -8,11 +8,10 @@ public class BoardDisplay extends JPanel {
     public BoardDisplay() {
         super();
         setLayout(new GridLayout(3, 3));
-        createCells();
     }
 
-    private void createCells() {
-        for (int i = 0; i < 9; i++)
-            add(new CellButton());
+    public void addButton(CellButton button) {
+        add(button);
     }
+
 }
