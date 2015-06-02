@@ -6,5 +6,6 @@ public class CellButton extends JButton {
 
     public CellButton() {
         super();
+        setFocusPainted(false);
     }
 }
