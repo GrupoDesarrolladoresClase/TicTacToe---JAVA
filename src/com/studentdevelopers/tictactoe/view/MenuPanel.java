@@ -3,9 +3,9 @@ package com.studentdevelopers.tictactoe.view;
 import javax.swing.*;
 import java.awt.*;
 
-import static java.awt.BorderLayout.*;
-import static java.awt.Color.*;
-import static java.awt.Color.GRAY;
+import static java.awt.BorderLayout.CENTER;
+import static java.awt.BorderLayout.SOUTH;
+import static java.awt.Color.decode;
 
 public class MenuPanel extends JPanel {
 

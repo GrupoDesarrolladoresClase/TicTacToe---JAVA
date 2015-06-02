@@ -1,12 +1,12 @@
 package com.studentdevelopers.tictactoe.model.winchecker;
 
+import com.studentdevelopers.tictactoe.model.GameState;
 import com.studentdevelopers.tictactoe.model.board.Board;
 import com.studentdevelopers.tictactoe.model.board.Cell;
-import com.studentdevelopers.tictactoe.model.GameState;
 
 import java.util.function.Function;
 
-import static com.studentdevelopers.tictactoe.model.board.CellState.*;
+import static com.studentdevelopers.tictactoe.model.board.CellState.EMPTY;
 
 public class StateChecker {
 

@@ -2,11 +2,15 @@ package com.studentdevelopers.tictactoe.controller;
 
 import com.studentdevelopers.tictactoe.model.Game;
 import com.studentdevelopers.tictactoe.model.GameBuilder;
+import com.studentdevelopers.tictactoe.model.GameState;
 import com.studentdevelopers.tictactoe.model.board.CellState;
 import com.studentdevelopers.tictactoe.model.helpers.Observer;
 import com.studentdevelopers.tictactoe.view.CellButton;
 import com.studentdevelopers.tictactoe.view.CellButtonOperator;
 import com.studentdevelopers.tictactoe.view.GameDisplay;
+
+import static com.studentdevelopers.tictactoe.model.GameState.TIE;
+import static com.studentdevelopers.tictactoe.model.GameState.WON;
 
 public class GameController {
 
@@ -45,7 +49,13 @@ public class GameController {
             @Override
             public void markCell(int id) {
                 game.markCell(id);
+                if (isFinished()) new FinishedGameDialog();
             }
         });
+    }
+
+    private boolean isFinished() {
+        GameState state = game.gameState();
+        return state == WON || state == TIE;
     }
 }

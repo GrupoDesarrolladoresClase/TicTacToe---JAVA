@@ -1,7 +1,7 @@
 package com.studentdevelopers.tictactoe.model.player;
 
-import com.studentdevelopers.tictactoe.model.board.Markable;
 import com.studentdevelopers.tictactoe.model.board.Board;
+import com.studentdevelopers.tictactoe.model.board.Markable;
 
 public class Player {
 

@@ -5,7 +5,6 @@ import java.awt.*;
 
 import static java.awt.BorderLayout.CENTER;
 import static java.awt.BorderLayout.EAST;
-import static java.awt.Color.*;
 
 public class GameDisplay extends JFrame {
 
