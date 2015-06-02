@@ -5,6 +5,7 @@ import java.awt.*;
 
 import static java.awt.BorderLayout.CENTER;
 import static java.awt.BorderLayout.EAST;
+import static java.awt.Color.*;
 
 public class GameDisplay extends JFrame {
 
@@ -13,13 +14,17 @@ public class GameDisplay extends JFrame {
 
     public GameDisplay()  {
         super("Tic-Tac-Toe");
-        setMinimumSize(new Dimension(800, 600));
-        setLocationRelativeTo(null);
-        setResizable(false);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        gameSetUp();
         initializeComponents();
         addComponents();
         setVisible(true);
+    }
+
+    private void gameSetUp() {
+        setMinimumSize(new Dimension(800, 600));
+        setResizable(false);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
     }
 
     public BoardDisplay board() {

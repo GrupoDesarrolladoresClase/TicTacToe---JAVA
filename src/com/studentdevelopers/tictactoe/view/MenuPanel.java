@@ -3,14 +3,26 @@ package com.studentdevelopers.tictactoe.view;
 import javax.swing.*;
 import java.awt.*;
 
+import static java.awt.BorderLayout.*;
+import static java.awt.Color.*;
 import static java.awt.Color.GRAY;
 
 public class MenuPanel extends JPanel {
 
     public MenuPanel() {
         super();
-        setPreferredSize(new Dimension(150, 600));
-        setBackground(GRAY);
-        add(new JLabel("Player1"));
+        panelSetUp();
+        addComponents();
+    }
+
+    private void panelSetUp() {
+        setPreferredSize(new Dimension(165, 600));
+        setBackground(decode("#D9E9E9"));
+        setLayout(new BorderLayout());
+    }
+
+    private void addComponents() {
+        add(new TurnDisplay(), CENTER);
+        add(new MenuButton("Exit"), SOUTH);
     }
 }
