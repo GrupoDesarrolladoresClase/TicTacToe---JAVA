@@ -10,7 +10,7 @@ public class GameDisplay extends JFrame {
 
     public GameDisplay()  {
         super("Tic-Tac-Toe");
-        setMinimumSize(new Dimension(550, 430));
+        setMinimumSize(new Dimension(800, 600));
         setLocationRelativeTo(null);
         setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);

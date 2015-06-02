@@ -1,3 +1,4 @@
 .idea/workspace.xml
 *.class
 out/
+.DS_STORE

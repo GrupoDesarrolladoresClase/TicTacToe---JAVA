@@ -13,6 +13,6 @@ public class BoardDisplay extends JPanel {
 
     private void createCells() {
         for (int i = 0; i < 9; i++)
-            add(new JButton());
+            add(new CellButton());
     }
 }
