@@ -1,6 +1,4 @@
-package com.studentdevelopers.tictactoe.controller;
-
-import com.studentdevelopers.tictactoe.view.MenuButton;
+package com.studentdevelopers.tictactoe.view;
 
 import javax.swing.*;
 import java.awt.*;

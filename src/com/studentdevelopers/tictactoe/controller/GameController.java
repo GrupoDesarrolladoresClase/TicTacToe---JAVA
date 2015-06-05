@@ -7,6 +7,7 @@ import com.studentdevelopers.tictactoe.model.board.CellState;
 import com.studentdevelopers.tictactoe.model.helpers.Observer;
 import com.studentdevelopers.tictactoe.view.CellButton;
 import com.studentdevelopers.tictactoe.view.CellButtonOperator;
+import com.studentdevelopers.tictactoe.view.FinishedGameDialog;
 import com.studentdevelopers.tictactoe.view.GameDisplay;
 
 import static com.studentdevelopers.tictactoe.model.GameState.TIE;
