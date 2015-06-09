@@ -1,10 +1,10 @@
 package com.studentdevelopers.tictactoe.model;
 
 import com.studentdevelopers.tictactoe.model.board.Board;
-import com.studentdevelopers.tictactoe.model.player.Figure;
-import com.studentdevelopers.tictactoe.model.winchecker.StateChecker;
 import com.studentdevelopers.tictactoe.model.helpers.Observer;
+import com.studentdevelopers.tictactoe.model.player.Figure;
 import com.studentdevelopers.tictactoe.model.player.Player;
+import com.studentdevelopers.tictactoe.model.winchecker.StateChecker;
 
 public class Game implements Observer {
 
@@ -31,7 +31,7 @@ public class Game implements Observer {
         return board().toString();
     }
 
-    private Board board() {
+    public Board board() {
         return playersPair.board();
     }
 
