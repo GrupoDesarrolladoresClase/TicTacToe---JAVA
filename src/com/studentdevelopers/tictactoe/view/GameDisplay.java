@@ -2,6 +2,7 @@ package com.studentdevelopers.tictactoe.view;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Map;
 
 import static java.awt.BorderLayout.CENTER;
 import static java.awt.BorderLayout.EAST;
@@ -10,9 +11,11 @@ public class GameDisplay extends JFrame {
 
     private BoardDisplay board;
     private MenuPanel menu;
+    private Map<String, CellButtonOperator> operationsMap;
 
-    public GameDisplay()  {
+    public GameDisplay(Map<String, CellButtonOperator> operationsMap)  {
         super("Tic-Tac-Toe");
+        this.operationsMap = operationsMap;
         gameSetUp();
         initializeComponents();
         addComponents();
@@ -31,7 +34,7 @@ public class GameDisplay extends JFrame {
     }
 
     private void initializeComponents() {
-        board = new BoardDisplay();
+        board = new BoardDisplay(operationsMap);
         menu = new MenuPanel();
     }
 
