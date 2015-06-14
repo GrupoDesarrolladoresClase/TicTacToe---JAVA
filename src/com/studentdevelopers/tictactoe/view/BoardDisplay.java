@@ -18,6 +18,9 @@ public class BoardDisplay extends JPanel {
         addButtons();
     }
 
+    private void addButtons() {
+        for (int i = 1; i <= 9; i++)
+            addButton(new CellButton(i, operationsMap.get("Cell " + i)));
     }
 
     public void addButton(CellButton button) {
