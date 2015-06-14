@@ -5,10 +5,10 @@ import com.studentdevelopers.tictactoe.model.GameBuilder;
 import com.studentdevelopers.tictactoe.model.GameState;
 import com.studentdevelopers.tictactoe.model.board.CellState;
 import com.studentdevelopers.tictactoe.model.helpers.Observer;
-import com.studentdevelopers.tictactoe.view.CellButton;
-import com.studentdevelopers.tictactoe.view.CellButtonOperator;
-import com.studentdevelopers.tictactoe.view.FinishedGameDialog;
-import com.studentdevelopers.tictactoe.view.GameDisplay;
+import com.studentdevelopers.tictactoe.view.*;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import static com.studentdevelopers.tictactoe.model.GameState.TIE;
 import static com.studentdevelopers.tictactoe.model.GameState.WON;
@@ -36,8 +36,8 @@ public class GameController {
         gameDisplay.board().repaint();
     }
 
-    private CellButton createCellButton(int index) {
-        return new CellButton(index, new CellButtonOperator() {
+    private CellButtonOperator operationForCellButton(int index) {
+        return new CellButtonOperator() {
             @Override
             public CellState getStateForCell(int id) {
                 return game.board().cells()[id - 1].state();
@@ -53,7 +53,7 @@ public class GameController {
                 game.markCell(id);
                 if (isFinished()) new FinishedGameDialog();
             }
-        });
+        };
     }
 
     private boolean isFinished() {
