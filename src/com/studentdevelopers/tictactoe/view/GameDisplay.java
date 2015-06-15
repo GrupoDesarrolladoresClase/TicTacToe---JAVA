@@ -38,6 +38,10 @@ public class GameDisplay extends JFrame {
         remove(boardDisplay);
         boardDisplay = new BoardDisplay(this.operationsMap);
         add(boardDisplay, CENTER);
+        refreshView();
+    }
+
+    private void refreshView() {
         revalidate();
         repaint();
     }
