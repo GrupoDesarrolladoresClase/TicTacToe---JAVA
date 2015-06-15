@@ -23,7 +23,6 @@ public class GameController {
         game = GameBuilder.buildAPersonVSPersonGame();
         fillOperationsMap();
         gameDisplay = new GameDisplay(operationsMap);
-        updateBoardView();
     }
 
     private void fillOperationsMap() {
