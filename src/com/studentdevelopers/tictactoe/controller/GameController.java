@@ -15,7 +15,7 @@ import static com.studentdevelopers.tictactoe.model.GameState.WON;
 
 public class GameController {
 
-    private final Game game;
+    private Game game;
     private final GameDisplay gameDisplay;
     private final Map<String, CellButtonOperator> operationsMap = new HashMap<>();
 
@@ -45,7 +45,10 @@ public class GameController {
             @Override
             public void markCell(int id) {
                 game.markCell(id);
-                if (isFinished()) new FinishedGameDialog();
+                if (isFinished()) new FinishedGameDialog(() -> {
+                    game = GameBuilder.buildAPersonVSPersonGame();
+                    gameDisplay.restart();
+                });
             }
         };
     }

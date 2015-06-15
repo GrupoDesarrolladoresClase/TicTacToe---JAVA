@@ -5,8 +5,11 @@ import java.awt.*;
 
 public class FinishedGameDialog extends JDialog {
 
-    public FinishedGameDialog() {
+    private FinishedGameDialogOperators finishedGameDialogOperators;
+
+    public FinishedGameDialog(FinishedGameDialogOperators finishedGameDialogOperators) {
         super();
+        this.finishedGameDialogOperators = finishedGameDialogOperators;
         dialogSetUp();
         addComponents();
         setVisible(true);
