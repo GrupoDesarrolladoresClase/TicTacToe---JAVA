@@ -29,18 +29,18 @@ public class GameDisplay extends JFrame {
         setLocationRelativeTo(null);
     }
 
-    public BoardDisplay board() {
-        return board;
-    }
-
-    private void initializeComponents() {
-        board = new BoardDisplay(operationsMap);
-        menu = new MenuPanel();
-    }
-
     private void addComponents() {
-        add(board, CENTER);
-        add(menu, EAST);
+        boardDisplay = new BoardDisplay(this.operationsMap);
+        add(boardDisplay, CENTER);
+        add(new MenuPanel(), EAST);
     }
 
+    public void restart() {
+        //TODO refactor this shit
+        remove(boardDisplay);
+        boardDisplay = new BoardDisplay(this.operationsMap);
+        add(boardDisplay, CENTER);
+        revalidate();
+        repaint();
+    }
 }
