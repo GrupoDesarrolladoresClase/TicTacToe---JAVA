@@ -31,11 +31,6 @@ public class GameController {
             operationsMap.put("Cell " + i, operationForCellButton(i));
     }
 
-    private void updateBoardView() {
-        gameDisplay.board().revalidate();
-        gameDisplay.board().repaint();
-    }
-
     private CellButtonOperator operationForCellButton(int index) {
         return new CellButtonOperator() {
             @Override
