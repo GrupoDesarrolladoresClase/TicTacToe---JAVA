@@ -9,15 +9,13 @@ import static java.awt.BorderLayout.EAST;
 
 public class GameDisplay extends JFrame {
 
-    private BoardDisplay board;
-    private MenuPanel menu;
     private Map<String, CellButtonOperator> operationsMap;
+    private BoardDisplay boardDisplay;
 
     public GameDisplay(Map<String, CellButtonOperator> operationsMap)  {
         super("Tic-Tac-Toe");
         this.operationsMap = operationsMap;
         gameSetUp();
-        initializeComponents();
         addComponents();
         setVisible(true);
     }
