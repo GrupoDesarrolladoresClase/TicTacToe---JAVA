@@ -1,21 +1,23 @@
 package com.studentdevelopers.tictactoe.view;
 
+import com.studentdevelopers.tictactoe.view.operators.ButtonOperator;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class FinishedGameDialog extends JDialog {
 
-    private FinishedGameDialogOperators finishedGameDialogOperators;
+    private ButtonOperator buttonOperator;
 
-    public FinishedGameDialog(FinishedGameDialogOperators finishedGameDialogOperators) {
+    public FinishedGameDialog(ButtonOperator buttonOperator) {
         super();
-        this.finishedGameDialogOperators = finishedGameDialogOperators;
-        dialogSetUp();
+        this.buttonOperator = buttonOperator;
+        setUpDialog();
         addComponents();
         setVisible(true);
     }
 
-    private void dialogSetUp() {
+    private void setUpDialog() {
         setTitle("End Of Game");
         setModal(true);
         setMinimumSize(new Dimension(210, 85));
