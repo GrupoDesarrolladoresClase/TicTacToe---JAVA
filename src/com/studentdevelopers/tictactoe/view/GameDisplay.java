@@ -1,21 +1,25 @@
 package com.studentdevelopers.tictactoe.view;
 
+import com.studentdevelopers.tictactoe.view.operators.ButtonOperator;
+import com.studentdevelopers.tictactoe.view.operators.CellOperator;
+
 import javax.swing.*;
 import java.awt.*;
-import java.util.Map;
 
 import static java.awt.BorderLayout.CENTER;
 import static java.awt.BorderLayout.EAST;
 
 public class GameDisplay extends JFrame {
 
-    private Map<String, CellButtonOperator> operationsMap;
     private BoardDisplay boardDisplay;
+    private final CellOperator cellOperator;
+    private final ButtonOperator buttonOperator;
 
-    public GameDisplay(Map<String, CellButtonOperator> operationsMap)  {
+    public GameDisplay(CellOperator cellOperator, ButtonOperator buttonOperator)  {
         super("Tic-Tac-Toe");
-        this.operationsMap = operationsMap;
-        gameSetUp();
+        this.cellOperator = cellOperator;
+        this.buttonOperator = buttonOperator;
+        setUpGame();
         addComponents();
         setVisible(true);
     }
@@ -28,15 +32,15 @@ public class GameDisplay extends JFrame {
     }
 
     private void addComponents() {
-        boardDisplay = new BoardDisplay(this.operationsMap);
+        boardDisplay = new BoardDisplay(cellOperator);
         add(boardDisplay, CENTER);
-        add(new MenuPanel(), EAST);
+        add(new MenuPanel(buttonOperator), EAST);
     }
 
     public void restart() {
         //TODO refactor this shit
         remove(boardDisplay);
-        boardDisplay = new BoardDisplay(this.operationsMap);
+        boardDisplay = new BoardDisplay(cellOperator);
         add(boardDisplay, CENTER);
         refreshView();
     }
