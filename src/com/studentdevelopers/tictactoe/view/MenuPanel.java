@@ -27,7 +27,13 @@ public class MenuPanel extends JPanel {
     }
 
     private void addComponents() {
-        add(new TurnDisplay(), CENTER);
-        add(new MenuButton("Exit"), SOUTH);
+        add(new TurnDisplay(), CENTER); //ToDo improve it
+        add(createExitButton(), SOUTH);
+    }
+
+    private Button createExitButton() {
+        Button exitButton = new Button("Exit");
+        exitButton.addActionListener(e -> buttonOperator.exitGame());
+        return exitButton;
     }
 }
