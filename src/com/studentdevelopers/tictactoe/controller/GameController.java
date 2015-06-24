@@ -17,21 +17,16 @@ public class GameController {
 
     private Game game;
     private final GameDisplay gameDisplay;
-    private final Map<String, CellButtonOperator> operationsMap = new HashMap<>();
+    private final ButtonOperator buttonOperator;
 
     public GameController() {
-        game = GameBuilder.buildAPersonVSPersonGame();
-        fillOperationsMap();
-        gameDisplay = new GameDisplay(operationsMap);
+        game = buildAPersonVSPersonGame();
+        buttonOperator = defineButtonOperator();
+        gameDisplay = new GameDisplay(cellOperator(), buttonOperator);
     }
 
-    private void fillOperationsMap() {
-        for (int i = 1; i <= 9; i++)
-            operationsMap.put("Cell " + i, operationForCellButton(i));
-    }
-
-    private CellButtonOperator operationForCellButton(int index) {
-        return new CellButtonOperator() {
+    private CellOperator cellOperator() {
+        return new CellOperator() {
             @Override
             public CellState getStateForCell(int id) {
                 return game.board().cells()[id - 1].state();
