@@ -1,5 +1,7 @@
 package com.studentdevelopers.tictactoe.view;
 
+import com.studentdevelopers.tictactoe.view.operators.ButtonOperator;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -9,9 +11,12 @@ import static java.awt.Color.decode;
 
 public class MenuPanel extends JPanel {
 
-    public MenuPanel() {
+    private final ButtonOperator buttonOperator;
+
+    public MenuPanel(ButtonOperator buttonOperator) {
         super();
-        panelSetUp();
+        this.buttonOperator = buttonOperator;
+        setUpPanel();
         addComponents();
     }
 
