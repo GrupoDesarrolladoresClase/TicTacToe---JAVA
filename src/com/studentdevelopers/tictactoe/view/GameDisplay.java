@@ -20,10 +20,10 @@ public class GameDisplay extends JFrame {
         setVisible(true);
     }
 
-    private void gameSetUp() {
+    private void setUpGame() {
         setMinimumSize(new Dimension(800, 600));
         setResizable(false);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
     }
 
