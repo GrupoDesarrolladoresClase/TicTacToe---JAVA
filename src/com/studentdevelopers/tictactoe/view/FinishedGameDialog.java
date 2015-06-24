@@ -38,13 +38,23 @@ public class FinishedGameDialog extends JDialog {
 
     private JPanel createToolBar() {
         JPanel toolBarPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
-        MenuButton restartButton = new MenuButton("Restart");
+        toolBarPanel.add(createRestartButton());
+        toolBarPanel.add(createExitButton());
+        return toolBarPanel;
+    }
+
+    private Button createRestartButton() {
+        Button restartButton = new Button("Restart");
         restartButton.addActionListener(e -> {
-            finishedGameDialogOperators.restartGame();
+            buttonOperator.restartGame();
             setVisible(false);
         });
-        toolBarPanel.add(restartButton);
-        toolBarPanel.add(new MenuButton("Exit"));
-        return toolBarPanel;
+        return restartButton;
+    }
+
+    private Button createExitButton() {
+        Button exitButton = new Button("Exit");
+        exitButton.addActionListener(e -> buttonOperator.exitGame());
+        return exitButton;
     }
 }
