@@ -15,7 +15,7 @@ public class MenuPanel extends JPanel {
         addComponents();
     }
 
-    private void panelSetUp() {
+    private void setUpPanel() {
         setPreferredSize(new Dimension(165, 600));
         setBackground(decode("#D9E9E9"));
         setLayout(new BorderLayout());
