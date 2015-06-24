@@ -2,9 +2,10 @@ package com.studentdevelopers.tictactoe.view;
 
 import javax.swing.*;
 
-public class MenuButton extends JButton {
+public class Button extends JButton {
 
-    public MenuButton(String name) {
+    public Button(String name) {
         super(name);
     }
+
 }
