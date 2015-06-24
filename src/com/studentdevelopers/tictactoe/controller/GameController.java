@@ -1,15 +1,15 @@
 package com.studentdevelopers.tictactoe.controller;
 
 import com.studentdevelopers.tictactoe.model.Game;
-import com.studentdevelopers.tictactoe.model.GameBuilder;
 import com.studentdevelopers.tictactoe.model.GameState;
 import com.studentdevelopers.tictactoe.model.board.CellState;
 import com.studentdevelopers.tictactoe.model.helpers.Observer;
-import com.studentdevelopers.tictactoe.view.*;
+import com.studentdevelopers.tictactoe.view.operators.ButtonOperator;
+import com.studentdevelopers.tictactoe.view.operators.CellOperator;
+import com.studentdevelopers.tictactoe.view.FinishedGameDialog;
+import com.studentdevelopers.tictactoe.view.GameDisplay;
 
-import java.util.HashMap;
-import java.util.Map;
-
+import static com.studentdevelopers.tictactoe.model.GameBuilder.buildAPersonVSPersonGame;
 import static com.studentdevelopers.tictactoe.model.GameState.TIE;
 import static com.studentdevelopers.tictactoe.model.GameState.WON;
 
