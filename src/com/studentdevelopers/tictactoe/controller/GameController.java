@@ -4,10 +4,10 @@ import com.studentdevelopers.tictactoe.model.Game;
 import com.studentdevelopers.tictactoe.model.GameState;
 import com.studentdevelopers.tictactoe.model.board.CellState;
 import com.studentdevelopers.tictactoe.model.helpers.Observer;
-import com.studentdevelopers.tictactoe.view.operators.ButtonOperator;
-import com.studentdevelopers.tictactoe.view.operators.CellOperator;
 import com.studentdevelopers.tictactoe.view.FinishedGameDialog;
 import com.studentdevelopers.tictactoe.view.GameDisplay;
+import com.studentdevelopers.tictactoe.view.operators.ButtonOperator;
+import com.studentdevelopers.tictactoe.view.operators.CellOperator;
 
 import static com.studentdevelopers.tictactoe.model.GameBuilder.buildAPersonVSPersonGame;
 import static com.studentdevelopers.tictactoe.model.GameState.TIE;
@@ -45,10 +45,23 @@ public class GameController {
             @Override
             public void markCell(int id) {
                 game.markCell(id);
-                if (isFinished()) new FinishedGameDialog(() -> {
-                    game = GameBuilder.buildAPersonVSPersonGame();
-                    gameDisplay.restart();
-                });
+                if (isFinished())
+                    new FinishedGameDialog(buttonOperator);
+            }
+        };
+    }
+
+    private ButtonOperator defineButtonOperator() {
+        return new ButtonOperator() {
+            @Override
+            public void restartGame() {
+                game = buildAPersonVSPersonGame();
+                gameDisplay.restart();
+            }
+
+            @Override
+            public void exitGame() {
+                System.exit(0);
             }
         };
     }
