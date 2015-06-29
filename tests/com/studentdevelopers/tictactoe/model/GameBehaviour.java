@@ -59,5 +59,11 @@ public class GameBehaviour {
         assertThat(game.state(), is(WON));
     }
 
+    @Test
+    public void should_have_the_values_reseated_when_the_reset_method_is_called() {
+        cellMarker.markCells(1, 2, 4, 3, 7);
+        game.resetGame();
+        assertThat(game.boardToString(), is(EMPTY_BOARD));
+        assertThat(game.state(), is(RUNNING));
     }
 }
