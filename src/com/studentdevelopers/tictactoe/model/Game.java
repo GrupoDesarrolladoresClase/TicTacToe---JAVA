@@ -55,4 +55,9 @@ public class Game implements Observer {
         if (state != RUNNING) return;
         currentPlayer = (currentPlayer == playerA()) ? playerB() : playerA();
     }
+
+    public void resetGame() {
+        board().resetBoard();
+        state = RUNNING;
+    }
 }
