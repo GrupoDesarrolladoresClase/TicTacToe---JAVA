@@ -15,62 +15,47 @@ public class AnAcceptedGame {
     private final String firstTestBoard = "O O O\n- X X\n- - -\n";
     private final String secondTestBoard = "O X O\nX X O\nO O X\n";
     private final String thirdTestBoard = "O X -\nO X -\nO - -\n";
+    private Game game;
+    private CellMarker cellMarker;
+
+    @Before
+    public void setUp() throws Exception {
+        game = GameBuilder.buildAPersonVSPersonGame();
+        cellMarker = new CellMarker(game);
+    }
 
     @Test
     public void should_have_a_won_state_when_circles_wins() {
-        Game game = GameBuilder.buildAPersonVSPersonGame();
-        game.markCell(1);
-        game.markCell(5);
-        game.markCell(2);
-        game.markCell(6);
-        game.markCell(3);
+        cellMarker.markCells(1, 5, 2, 6, 3);
         assertThat(game.boardToString(), is(firstTestBoard));
-        assertThat(game.gameState(), is(GameState.WON));
-        assertThat(game.winner(), is(Figure.CIRCLE));
+        assertThat(game.state(), is(WON));
+        assertThat(game.winner(), is(CIRCLE));
     }
 
     @Test
     public void should_have_a_tie_state_when_all_cells_are_marked_without_a_winner() {
-        Game game = GameBuilder.buildAPersonVSPersonGame();
-        game.markCell(1);
-        game.markCell(2);
-        game.markCell(3);
-        game.markCell(4);
-        game.markCell(6);
-        game.markCell(5);
-        game.markCell(8);
-        game.markCell(9);
-        assertThat(game.gameState(), is(GameState.RUNNING));
-        game.markCell(7);
-        assertThat(game.gameState(), is(GameState.TIE));
+        cellMarker.markCells(1, 2, 3, 4, 6, 5, 8, 9);
+        assertThat(game.state(), is(RUNNING));
+        cellMarker.markCells(7);
+        assertThat(game.state(), is(TIE));
         assertThat(game.boardToString(), is(secondTestBoard));
     }
 
     @Test
     public void should_return_crosses_like_winner_when_crosses_wins() {
-        Game game = GameBuilder.buildAPersonVSPersonGame();
-        game.markCell(1);
-        game.markCell(4);
-        game.markCell(8);
-        game.markCell(5);
-        game.markCell(9);
-        assertThat(game.gameState(), is(GameState.RUNNING));
-        game.markCell(6);
-        assertThat(game.gameState(), is(GameState.WON));
-        assertThat(game.winner(), is(Figure.CROSS));
+        cellMarker.markCells(1, 4, 8, 5, 9);
+        assertThat(game.state(), is(RUNNING));
+        cellMarker.markCells(6);
+        assertThat(game.state(), is(WON));
+        assertThat(game.winner(), is(CROSS));
     }
 
     @Test
     public void should_not_allow_player_mark_a_cell_when_this_cell_is_already_marked() {
-        Game game = GameBuilder.buildAPersonVSPersonGame();
-        game.markCell(1);
-        game.markCell(1);
-        game.markCell(2);
-        game.markCell(4);
-        game.markCell(5);
-        game.markCell(7);
+        cellMarker.markCells(1, 1, 2, 4, 5, 7);
         assertThat(game.boardToString(), is(thirdTestBoard));
-        assertThat(game.gameState(), is(GameState.WON));
-        assertThat(game.winner(), is(Figure.CIRCLE));
+        assertThat(game.state(), is(WON));
+        assertThat(game.winner(), is(CIRCLE));
     }
+
 }
