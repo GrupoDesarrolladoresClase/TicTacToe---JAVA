@@ -41,16 +41,31 @@ public class GameController {
             public void markCell(int id) {
                 game.markCell(id);
                 if (isFinished())
-                    new FinishedGameDialog(buttonOperator);
+                    new FinishedGameDialog(finishGameText(), buttonOperator);
             }
         };
+    }
+
+    private boolean isFinished() {
+        GameState state = game.state();
+        return state == WON || state == TIE;
+    }
+
+    private String finishGameText() {
+        if (game.state() == TIE) return "TIE";
+        return game.winner() == game.playerA().figure() ?
+                textToWinner(1) : textToWinner(2);
+    }
+
+    private String textToWinner(int id) {
+        return "The player " + id + " is the winner";
     }
 
     private ButtonOperator defineButtonOperator() {
         return new ButtonOperator() {
             @Override
-            public void restartGame() {
-                game = buildAPersonVSPersonGame();
+            public void resetGame() {
+                game.resetGame();
                 gameDisplay.restart();
             }
 
@@ -59,10 +74,5 @@ public class GameController {
                 System.exit(0);
             }
         };
-    }
-
-    private boolean isFinished() {
-        GameState state = game.gameState();
-        return state == WON || state == TIE;
     }
 }
