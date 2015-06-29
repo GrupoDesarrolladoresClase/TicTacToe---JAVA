@@ -15,17 +15,18 @@ import static org.hamcrest.Matchers.is;
 
 public class GameBehaviour {
 
-    private Board board;
-    private HumanPlayer playerA;
-    private HumanPlayer playerB;
     private Game game;
+    private CellMarker cellMarker;
+
+    private final String EMPTY_BOARD = "- - -\n- - -\n- - -\n";
 
     @Before
     public void setUp(){
-        board = new Board();
-        playerA = new HumanPlayer(board, CIRCLE);
-        playerB = new HumanPlayer(board, CROSS);
+        Board board = new Board();
+        HumanPlayer playerA = new HumanPlayer(board, CIRCLE);
+        HumanPlayer playerB = new HumanPlayer(board, CROSS);
         game = new Game(new PlayersPair(playerA, playerB));
+        cellMarker = new CellMarker(game);
     }
 
     @Test
