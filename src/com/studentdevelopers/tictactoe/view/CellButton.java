@@ -34,7 +34,7 @@ public class CellButton extends JButton implements Observer {
     }
 
     private boolean isCircle(CellState stateForCell) {
-        return stateForCell == CellState.CIRCLE;
+        return stateForCell == CIRCLE;
     }
 
     private void markCell(String shape) {
