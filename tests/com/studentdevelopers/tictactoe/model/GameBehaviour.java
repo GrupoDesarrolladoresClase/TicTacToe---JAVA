@@ -30,42 +30,34 @@ public class GameBehaviour {
     }
 
     @Test
-    public void should_create_a_board_with_empty_cells() throws Exception {
-        assertThat(game.boardToString(), is("- - -\n- - -\n- - -\n"));
+    public void should_create_a_board_with_empty_cells() {
+        assertThat(game.boardToString(), is(EMPTY_BOARD));
     }
 
     @Test
-    public void should_mark_with_a_circle_center_Position_when_first_player_moves_there() throws Exception {
-        game.markCell(5);
+    public void should_mark_with_a_circle_center_Position_when_first_player_moves_there() {
+        cellMarker.markCells(5);
         assertThat(game.boardToString(), is("- - -\n- O -\n- - -\n"));
     }
 
     @Test
-    public void should_mark_the_board_with_two_different_figures_when_mark_cell_twice() throws Exception {
-        game.markCell(5);
-        game.markCell(1);
+    public void should_mark_the_board_with_two_different_figures_when_mark_cell_twice() {
+        cellMarker.markCells(5, 1);
         assertThat(game.boardToString(), is("X - -\n- O -\n- - -\n"));
     }
 
     @Test
-    public void should_alternate_current_player_each_time_a_cell_is_marked() throws Exception {
-        game.markCell(1);
-        game.markCell(2);
-        game.markCell(5);
-        game.markCell(3);
-        game.markCell(4);
-        game.markCell(9);
+    public void should_alternate_current_player_each_time_a_cell_is_marked() {
+        cellMarker.markCells(1, 2, 5, 3, 4, 9);
         assertThat(game.boardToString(), is("O X X\nO O -\n- - X\n"));
     }
 
     @Test
-    public void should_have_finished_state_when_there_is_a_winner() throws Exception {
-        game.markCell(1);
-        game.markCell(2);
-        game.markCell(4);
-        game.markCell(3);
-        game.markCell(7);
+    public void should_have_finished_state_when_there_is_a_winner() {
+        cellMarker.markCells(1, 2, 4, 3, 7);
         assertThat(game.boardToString(), is("O X X\nO - -\nO - -\n"));
-        assertThat(game.gameState(), is(GameState.WON));
+        assertThat(game.state(), is(WON));
+    }
+
     }
 }
