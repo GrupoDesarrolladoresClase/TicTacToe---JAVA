@@ -29,4 +29,8 @@ public class BoardDisplay extends JPanel {
         add(button);
     }
 
+    public void resetBoard() {
+        for (Component component : getComponents())
+            ((CellButton) component).setIcon(null);
+    }
 }
