@@ -2,10 +2,14 @@ package com.studentdevelopers.tictactoe.model;
 
 import com.studentdevelopers.tictactoe.model.board.Board;
 import com.studentdevelopers.tictactoe.model.player.HumanPlayer;
+import com.studentdevelopers.tictactoe.model.testhelper.CellMarker;
 import org.junit.Before;
 import org.junit.Test;
 
-import static com.studentdevelopers.tictactoe.model.player.Figure.*;
+import static com.studentdevelopers.tictactoe.model.GameState.RUNNING;
+import static com.studentdevelopers.tictactoe.model.GameState.WON;
+import static com.studentdevelopers.tictactoe.model.player.Figure.CIRCLE;
+import static com.studentdevelopers.tictactoe.model.player.Figure.CROSS;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 

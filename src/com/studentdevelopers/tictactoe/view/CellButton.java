@@ -6,6 +6,8 @@ import com.studentdevelopers.tictactoe.view.operators.CellOperator;
 
 import javax.swing.*;
 
+import static com.studentdevelopers.tictactoe.model.board.CellState.CIRCLE;
+
 public class CellButton extends JButton implements Observer {
 
     private final int ID;

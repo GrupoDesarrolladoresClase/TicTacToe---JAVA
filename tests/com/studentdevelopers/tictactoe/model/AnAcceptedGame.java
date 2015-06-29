@@ -1,8 +1,12 @@
 package com.studentdevelopers.tictactoe.model;
 
-import com.studentdevelopers.tictactoe.model.player.Figure;
+import com.studentdevelopers.tictactoe.model.testhelper.CellMarker;
+import org.junit.Before;
 import org.junit.Test;
 
+import static com.studentdevelopers.tictactoe.model.GameState.*;
+import static com.studentdevelopers.tictactoe.model.player.Figure.CIRCLE;
+import static com.studentdevelopers.tictactoe.model.player.Figure.CROSS;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 

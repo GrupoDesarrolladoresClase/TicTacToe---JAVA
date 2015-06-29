@@ -3,6 +3,8 @@ package com.studentdevelopers.tictactoe.model.board;
 import com.studentdevelopers.tictactoe.model.helpers.Observable;
 import com.studentdevelopers.tictactoe.model.helpers.Observer;
 
+import static com.studentdevelopers.tictactoe.model.board.CellState.EMPTY;
+
 public class Board extends Observable implements Observer{
 
     private final Cell[] cells;

@@ -1,8 +1,8 @@
 package com.studentdevelopers.tictactoe.model.winchecker;
 
-import com.studentdevelopers.tictactoe.model.testhelper.LineMarker;
 import com.studentdevelopers.tictactoe.model.board.Board;
 import com.studentdevelopers.tictactoe.model.player.Figure;
+import com.studentdevelopers.tictactoe.model.testhelper.LineMarker;
 import org.junit.Before;
 import org.junit.Test;
 

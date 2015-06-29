@@ -6,6 +6,8 @@ import com.studentdevelopers.tictactoe.model.player.Figure;
 import com.studentdevelopers.tictactoe.model.player.Player;
 import com.studentdevelopers.tictactoe.model.winchecker.StateChecker;
 
+import static com.studentdevelopers.tictactoe.model.GameState.RUNNING;
+
 public class Game implements Observer {
 
     private final PlayersPair playersPair;
