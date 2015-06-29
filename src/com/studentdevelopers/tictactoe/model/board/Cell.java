@@ -28,14 +28,13 @@ public class Cell extends Observable implements Markable {
         return this.state;
     }
 
-    @Override
-    public void addObserver(Observer observer) {
-        observers.add(observer);
+    public void setState(CellState state) {
+        this.state = state;
     }
 
     @Override
-    public void deleteObserver(Observer observer) {
-        observers.remove(observer);
+    public void addObserver(Observer observer) {
+        observers.add(observer);
     }
 
     @Override
