@@ -8,9 +8,11 @@ import java.awt.*;
 public class FinishedGameDialog extends JDialog {
 
     private ButtonOperator buttonOperator;
+    private final String MESSAGE;
 
-    public FinishedGameDialog(ButtonOperator buttonOperator) {
+    public FinishedGameDialog(String message, ButtonOperator buttonOperator) {
         super();
+        this.MESSAGE = message;
         this.buttonOperator = buttonOperator;
         setUpDialog();
         addComponents();
@@ -26,13 +28,13 @@ public class FinishedGameDialog extends JDialog {
     }
 
     private void addComponents() {
-        add(createMessagePane("The Player1 is the Winner"), BorderLayout.CENTER);
+        add(createMessagePanel(), BorderLayout.CENTER);
         add(createToolBar(), BorderLayout.SOUTH);
     }
 
-    private JPanel createMessagePane(String message) {
+    private JPanel createMessagePanel() {
         JPanel messagePanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
-        messagePanel.add(new JLabel(message));
+        messagePanel.add(new JLabel(MESSAGE));
         return messagePanel;
     }
 
@@ -43,17 +45,17 @@ public class FinishedGameDialog extends JDialog {
         return toolBarPanel;
     }
 
-    private Button createRestartButton() {
-        Button restartButton = new Button("Restart");
+    private JButton createRestartButton() {
+        JButton restartButton = new JButton("Restart");
         restartButton.addActionListener(e -> {
-            buttonOperator.restartGame();
+            buttonOperator.resetGame();
             setVisible(false);
         });
         return restartButton;
     }
 
-    private Button createExitButton() {
-        Button exitButton = new Button("Exit");
+    private JButton createExitButton() {
+        JButton exitButton = new JButton("Exit");
         exitButton.addActionListener(e -> buttonOperator.exitGame());
         return exitButton;
     }
