@@ -31,8 +31,8 @@ public class MenuPanel extends JPanel {
         add(createExitButton(), SOUTH);
     }
 
-    private Button createExitButton() {
-        Button exitButton = new Button("Exit");
+    private JButton createExitButton() {
+        JButton exitButton = new JButton("Exit");
         exitButton.addActionListener(e -> buttonOperator.exitGame());
         return exitButton;
     }
