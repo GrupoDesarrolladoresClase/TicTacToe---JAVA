@@ -48,11 +48,6 @@ public class Board extends Observable implements Observer{
     }
 
     @Override
-    public void deleteObserver(Observer observer) {
-        observers.remove(observer);
-    }
-
-    @Override
     public void notifyObservers() {
         observers.forEach(Observer::update);
     }
