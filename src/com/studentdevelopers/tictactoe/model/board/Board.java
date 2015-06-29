@@ -60,4 +60,8 @@ public class Board extends Observable implements Observer{
     public Cell[] cells() {
         return cells;
     }
+
+    public void resetBoard() {
+        for (Cell cell : cells) cell.setState(EMPTY);
+    }
 }
