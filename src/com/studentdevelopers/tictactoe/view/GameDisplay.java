@@ -38,10 +38,7 @@ public class GameDisplay extends JFrame {
     }
 
     public void restart() {
-        //TODO refactor this shit
-        remove(boardDisplay);
-        boardDisplay = new BoardDisplay(cellOperator);
-        add(boardDisplay, CENTER);
+        boardDisplay.resetBoard();
         refreshView();
     }
 
