@@ -16,14 +16,14 @@ public class Board extends Observable implements Observer{
     }
 
     private void createCells() {
-        for (int i = 0; i < cells.length; i++) {
+        for (int i = 0; i < SIZE; i++) {
             cells[i] = new Cell();
             cells[i].addObserver(this);
         }
     }
 
     public Markable cell(int cellID) {
-        return cells[cellID-1];
+        return cells[cellID - 1];
     }
 
     @Override
