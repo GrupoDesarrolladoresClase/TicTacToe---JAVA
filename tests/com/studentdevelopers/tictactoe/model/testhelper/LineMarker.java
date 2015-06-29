@@ -4,7 +4,8 @@ import com.studentdevelopers.tictactoe.model.board.Board;
 import com.studentdevelopers.tictactoe.model.board.Markable;
 import com.studentdevelopers.tictactoe.model.player.Figure;
 
-import static com.studentdevelopers.tictactoe.model.player.Figure.*;
+import static com.studentdevelopers.tictactoe.model.player.Figure.CIRCLE;
+import static com.studentdevelopers.tictactoe.model.player.Figure.CROSS;
 
 public class LineMarker {
 
