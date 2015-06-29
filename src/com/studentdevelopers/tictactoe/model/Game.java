@@ -25,7 +25,7 @@ public class Game implements Observer {
         currentPlayer.markCell(cellID);
     }
 
-    public GameState gameState() {
+    public GameState state() {
         return this.state;
     }
 
