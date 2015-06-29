@@ -17,7 +17,7 @@ public class Game implements Observer {
     public Game(PlayersPair playersPair) {
         this.playersPair = playersPair;
         this.currentPlayer = this.playersPair.playerA();
-        this.state = GameState.RUNNING;
+        this.state = RUNNING;
         this.board().addObserver(this);
     }
 
@@ -52,7 +52,7 @@ public class Game implements Observer {
     @Override
     public void update() {
         state = StateChecker.getUpdatedGameStateFor(board());
-        if (state != GameState.RUNNING) return;
+        if (state != RUNNING) return;
         currentPlayer = (currentPlayer == playerA()) ? playerB() : playerA();
     }
 }
